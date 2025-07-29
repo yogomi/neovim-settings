@@ -15,7 +15,7 @@ This is a minimal and modern Neovim setup using:
 ## Installation
 Clone this repo into your config directory:
 ```sh
-git clone https://github.com/yourname/nvim-config.git ~/.config/nvim
+git clone https://github.com/yourname/neovim-settings.git ~/.config/nvim
 ```
 
 Then launch Neovim:
