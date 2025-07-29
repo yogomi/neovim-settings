@@ -1,0 +1,11 @@
+# Neovim swap, backup, and undo files
+*.swp
+*.bak
+*.tmp
+*.undo
+
+# Lazy.nvim plugin data
+/lazy-lock.json
+
+# Optional: OS-specific
+.DS_Store
