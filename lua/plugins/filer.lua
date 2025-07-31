@@ -47,20 +47,6 @@ return {
         },
       })
 
-      -- ディレクトリを開いたときに nvim-tree を起動
-      vim.api.nvim_create_autocmd("BufEnter", {
-        group = vim.api.nvim_create_augroup("AutoNvimTree", { clear = true }),
-        callback = function(args)
-          local path = args.file
-          if vim.fn.isdirectory(path) == 1 then
-            vim.schedule(function()
-              require("nvim-tree.api").tree.open()
-              require("nvim-tree.api").tree.change_root(path)
-            end)
-          end
-        end,
-      })
-
       -- <leader>e でファイラをトグル
       vim.keymap.set('n', '<leader>e', require("nvim-tree.api").tree.toggle, { desc = "Toggle NvimTree" })
     end,

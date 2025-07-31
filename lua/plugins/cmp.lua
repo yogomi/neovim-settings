@@ -62,9 +62,10 @@ return {
 
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
+          { name = "copilot" },
+          { name = "buffer", keyword_length = 3 },
+          { name = "nvim_lua" },
           { name = "luasnip" },
-        }, {
-          { name = "buffer" },
         }),
 
         completion = {

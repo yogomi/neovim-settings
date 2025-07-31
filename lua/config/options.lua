@@ -14,6 +14,7 @@ vim.opt.backup = true  -- バックアップを有効にする
 vim.opt.viminfo = vim.opt.viminfo:get()
 vim.opt.undofile = true  -- アンドゥ履歴をファイルに
 vim.opt.ambiwidth = "double" -- 全角文字の幅を2に設定
+vim.g.mapleader = " "
 
 vim.cmd("filetype plugin indent on")
 
@@ -51,7 +52,7 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.wrap = true  -- 行の折り返しを無効にする
+vim.opt.wrap = true  -- 行の折り返しを有効にする
 vim.opt.hlsearch = true  -- 検索結果をハイライト
 vim.opt.list = true  -- 空白文字を表示
 vim.opt.listchars = { tab = ">-", trail = "~", extends = ">", precedes = "<", nbsp = "␣" }  -- 空白文字
@@ -78,3 +79,17 @@ vim.opt.conceallevel = 2
 vim.opt.concealcursor = "inv"
 vim.opt.colorcolumn = "99"
 
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    local sysname = vim.loop.os_uname().sysname
+    if sysname == "Darwin" then
+      if vim.fn.executable("im-select") == 1 then
+        os.execute("im-select com.apple.keylayout.ABC")
+      end
+    elseif sysname == "Linux" then
+      if vim.fn.executable("fcitx-remote") == 1 then
+        os.execute("fcitx-remote -c")
+      end
+    end
+  end,
+})

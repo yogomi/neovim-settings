@@ -46,10 +46,13 @@ keymap("c", "<C-d>", "<Del>", { desc = "Delete character after cursor in command
 -- comment
 vim.keymap.set("n", "<C-z>", function()
   require("Comment.api").toggle.linewise.current()
-end)
+end, { desc = "Toggle comment (normal)" })
+
 vim.keymap.set("v", "<C-z>", function()
-  require("Comment.api").toggle.linewise.current()
-end)
+  local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+  vim.api.nvim_feedkeys(esc, "x", false)
+  require("Comment.api").toggle.linewise(vim.fn.visualmode())
+end, { desc = "Toggle comment (visual)" })
 
 -- Copilot keymaps
 -- Copilot accept
