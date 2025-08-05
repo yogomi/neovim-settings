@@ -3,7 +3,30 @@ return {
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
     config = function()
-      require("lspconfig").ts_ls.setup({})
+      local lspconfig = require("lspconfig")
+      -- Python
+      lspconfig.pyright.setup{}
+
+      -- TypeScript/JavaScript
+      lspconfig.ts_ls.setup{}
+
+      -- Go
+      lspconfig.gopls.setup{}
+
+      -- Rust
+      lspconfig.rust_analyzer.setup{}
+
+      -- Lua (Neovim用)
+      lspconfig.lua_ls.setup{
+        settings = {
+          Lua = {
+            diagnostics = { globals = {'vim'} }
+          }
+        }
+      }
+
+      -- C/C++
+      lspconfig.clangd.setup{}
     end,
   },
 
@@ -11,7 +34,7 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      "neovim/nvim-lspconfig", -- 追加（LSP本体）
+      "neovim/nvim-lspconfig", 
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",

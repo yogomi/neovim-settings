@@ -73,3 +73,19 @@ end, { desc = "Copilot: Previous", noremap = true, silent = true })
 vim.keymap.set("i", "<C-]>", function()
   require("copilot.suggestion").dismiss()
 end, { desc = "Copilot: Dismiss", noremap = true, silent = true })
+vim.keymap.set('x', 'c', '<Nop>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>a', "myggVG$", { desc = "Select all" })
+vim.keymap.set('i', '<leader>a', "<ESC>myggVG$", { desc = "Select all" })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+
+-- yunk code block
+local yunk_codeblock = require("modules.yunk-codeblock").yank_codeblock
+vim.keymap.set("n", "<leader>y", yunk_codeblock, { desc = "Yank code block" })
+
+-- nvim-tree
+local tree = require("nvim-tree.api")
+
+vim.keymap.set('n', '<leader>vs', tree.node.open.vertical, { desc = "nvim-tree: Open: Vertical Split" })
+vim.keymap.set('n', '<leader>sp', tree.node.open.horizontal, { desc = "nvim-tree: Open: Horizontal Split" })

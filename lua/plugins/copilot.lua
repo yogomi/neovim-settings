@@ -17,10 +17,6 @@ return {
       "zbirenbaum/copilot.lua",
       "nvim-lua/plenary.nvim",
     },
-    opts = {
-      debug = true,
-      system_prompt = "指示がない場合は日本語で回答してください。",
-    },
     keys = {
       {
         "<leader>cc",
@@ -31,6 +27,11 @@ return {
     config = function()
       require("CopilotChat").setup({
         show_help = true,
+        debug = true,
+        system_prompt = "指示がない場合は日本語で回答してください。",
+        edit_with_instructions = {
+          diff = false,
+        },
         mappings = {
           submit_prompt = {
             insert = '<C-s>',
@@ -87,7 +88,7 @@ return {
             mapping = "<leader>cs",
             description = "ステージ済みのコミットメッセージの作成をお願いする",
             selection = function(source)
-              return require("CopilotChat.select").gitdiff(source, true)
+              return require("CopilotChat.function").gitdiff(source, true)
             end,
           },
         },

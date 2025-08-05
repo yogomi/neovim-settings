@@ -27,6 +27,9 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("nvim-tree").setup({
+        update_cwd = false,           -- カレントディレクトリの自動追従を無効化
+        sync_root_with_cwd = false,   -- ルートディレクトリの自動同期を無効化
+        respect_buf_cwd = false,      -- バッファごとのcwdを無視
         view = {
           width = 35,
         },
