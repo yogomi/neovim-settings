@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 local keymap = vim.keymap.set
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 keymap("n", "<Space>.", ":edit $MYVIMRC<CR>", { desc = "Edit Neovim config" })
@@ -23,7 +22,7 @@ local function show_syntax_group()
 end
 
 -- <Leader>s にマッピング
-vim.keymap.set('n', '<Leader>s', show_syntax_group, { desc = 'Show Syntax Group under cursor' })
+vim.keymap.set('n', '<leader>s', show_syntax_group, { desc = 'Show Syntax Group under cursor' })
 
 keymap("i", "<C-a>", "<Home>", { desc = "Go to start of line" })
 keymap("i", "<C-e>", "<End>", { desc = "Go to end of line" })
@@ -60,6 +59,11 @@ vim.keymap.set("i", "<C-k>", function()
   require("copilot.suggestion").accept()
 end, { desc = "Copilot: Accept", noremap = true, silent = true })
 
+vim.keymap.set("i", "<C-w>", function()
+  require("copilot.suggestion").accept_word()
+end, { desc = "Copilot: Accept Word", noremap = true, silent = true })
+
+
 -- Next/Previous suggestion
 vim.keymap.set("i", "<C-n>", function()
   require("copilot.suggestion").next()
@@ -83,9 +87,3 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 -- yunk code block
 local yunk_codeblock = require("modules.yunk-codeblock").yank_codeblock
 vim.keymap.set("n", "<leader>y", yunk_codeblock, { desc = "Yank code block" })
-
--- nvim-tree
-local tree = require("nvim-tree.api")
-
-vim.keymap.set('n', '<leader>vs', tree.node.open.vertical, { desc = "nvim-tree: Open: Vertical Split" })
-vim.keymap.set('n', '<leader>sp', tree.node.open.horizontal, { desc = "nvim-tree: Open: Horizontal Split" })

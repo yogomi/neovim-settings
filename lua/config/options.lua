@@ -14,7 +14,6 @@ vim.opt.backup = true  -- バックアップを有効にする
 vim.opt.viminfo = vim.opt.viminfo:get()
 vim.opt.undofile = true  -- アンドゥ履歴をファイルに
 vim.opt.ambiwidth = "double" -- 全角文字の幅を2に設定
-vim.g.mapleader = " "
 
 vim.cmd("filetype plugin indent on")
 
