@@ -40,3 +40,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
+-- 行末スペースを削除するコマンド
+vim.api.nvim_create_user_command("TrimWhitespace", [[%s/\s\+$//e]], {})
+
+-- <Leader>w で行末スペースを削除
+vim.keymap.set("n", "<Leader>w", ":TrimWhitespace<CR>", { noremap = true, silent = true })
+
+-- pの代わりに使用するペースト＆トリムコマンド
+vim.keymap.set("n", "<Leader>p", "p:TrimWhitespace<CR>", { noremap = true, silent = true })

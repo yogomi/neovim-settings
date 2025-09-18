@@ -19,6 +19,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 require("config.lazy")
 
 -- 基本オプション・色・キー割り当ての読み込み
+require("config.autocmds")
 require("config.options")
 require("config.colorscheme")
 require("config.keymaps")
