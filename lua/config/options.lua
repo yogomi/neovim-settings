@@ -76,7 +76,7 @@ vim.api.nvim_set_hl(0, "Title", {
 
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = "inv"
-vim.opt.colorcolumn = "99"
+vim.opt.colorcolumn = "100"
 
 vim.api.nvim_create_autocmd("InsertLeave", {
   callback = function()
