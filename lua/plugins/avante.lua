@@ -16,17 +16,6 @@ return {
       support_paste_from_clipboard = false,
       minimize_diff = true,
     },
-    providers = {
-      copilot = {
-        endpoint = "https://api.githubcopilot.com",
-        model = "claude-3.7-sonnet",
-        timeout = 30000,
-        extra_request_body = {
-          temperature = 0,
-          max_tokens = 4096,
-        },
-      },
-    },
     system_prompt = [[
 【基本方針】
 - 文章はやや硬めの文体で回答してほしい。
