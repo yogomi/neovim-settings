@@ -4,7 +4,7 @@ vim.opt.syntax = "on"
 vim.opt.background = "dark"
 
 vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8" -- ファイルのエンコーディングを UTF-8 に設定
+vim.opt_global.fileencoding = "utf-8" -- ファイルのエンコーディングを UTF-8 に設定
 vim.opt.fileencodings = { "utf-8", "sjis", "euc-jp", "cp932" } -- 優先順位はテーブルで
 vim.opt.fileformats = { "unix", "dos", "mac" } -- 改行コードの優先順位もテーブルで
 vim.opt.swapfile = false  -- スワップファイルを作成しない
